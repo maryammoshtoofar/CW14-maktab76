@@ -1,6 +1,12 @@
 $(document).ready(function () {
-  $("body").append("<p></p>");
-  $(".form-select").change(function () {
-    $("p").html($(this).val());
-  });
+  $("select")
+    .change(function () {
+      $("p").text($(this).text());
+      let text = "";
+      $("select option:selected").each(function () {
+        text += $(this).text();
+      });
+      $("#para").html(text);
+    })
+    .trigger("change");
 });
